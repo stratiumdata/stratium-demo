@@ -92,6 +92,48 @@ CREATE TRIGGER update_entitlements_updated_at
     FOR EACH ROW
     EXECUTE FUNCTION update_updated_at_column();
 
+-- ============================================================================
+-- POLICIES
+-- ============================================================================
+
+INSERT INTO policies (name, description, language, policy_content, effect, priority, created_by) VALUES
+    ('admin-full-access', 'Administrators have full access to all resources', 'opa',
+     'package stratium.authz
+
+default allow = false
+
+allow {
+    input.subject.role == "admin"
+}', 'allow', 100, 'system'),
+
+    ('department-read-isolation', 'Users can read resources in their department', 'opa',
+     'package stratium.authz
+
+default allow = false
+
+allow {
+    input.action == "read"
+    input.subject.department == input.resource.department
+}', 'allow', 80, 'system'),
+
+    ('classification-based-access', 'Users can only access resources at or below their classification level', 'opa',
+     'package stratium.authz
+
+default allow = false
+
+classification_levels := {
+    "unclassified": 0,
+    "confidential": 1,
+    "secret": 2,
+    "top-secret": 3
+}
+
+allow {
+    subject_level := classification_levels[input.subject.classification]
+    resource_level := classification_levels[input.resource.classification]
+    subject_level >= resource_level
+}', 'allow', 70, 'system');
+
 -- Grant permissions to stratium user
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO stratium;
 GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO stratium;
