@@ -24,6 +24,57 @@
   "accessCodeLifespanLogin": 1800,
   "clients": [
     {
+      "clientId": "stratium-cli-client",
+      "name": "",
+      "description": "",
+      "rootUrl": "",
+      "adminUrl": "",
+      "baseUrl": "",
+      "surrogateAuthRequired": false,
+      "enabled": true,
+      "alwaysDisplayInConsole": false,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "3gvfZGuzXB3E3IQxrJUD3zleb1kNrZc8",
+      "redirectUris": [
+        "http://localhost:8888/callback"
+      ],
+      "webOrigins": [
+        "http://localhost:8888"
+      ],
+      "notBefore": 0,
+      "bearerOnly": false,
+      "consentRequired": false,
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": true,
+      "serviceAccountsEnabled": false,
+      "publicClient": false,
+      "frontchannelLogout": true,
+      "protocol": "openid-connect",
+      "attributes": {
+        "oidc.ciba.grant.enabled": "false",
+        "oauth2.device.authorization.grant.enabled": "false",
+        "client.secret.creation.time": "1761562072",
+        "backchannel.logout.session.required": "true",
+        "backchannel.logout.revoke.offline.tokens": "false"
+      },
+      "authenticationFlowBindingOverrides": {},
+      "fullScopeAllowed": true,
+      "nodeReRegistrationTimeout": -1,
+      "defaultClientScopes": [
+        "profile",
+        "email",
+        "stratium-user-profile",
+        "classification"
+      ],
+      "optionalClientScopes": [],
+      "access": {
+        "view": true,
+        "configure": true,
+        "manage": true
+      }
+    },
+    {
       "clientId": "stratium-key-access",
       "name": "Stratium Key Access Service",
       "description": "Service for key access and DEK wrapping/unwrapping",
@@ -989,6 +1040,28 @@
         {
           "type": "password",
           "value": "password123",
+          "temporary": false
+        }
+      ],
+      "realmRoles": ["user"],
+      "groups": ["/users"]
+    },
+    {
+      "username": "actor",
+      "enabled": true,
+      "email": "actor@stratium.local",
+      "emailVerified": true,
+      "firstName": "Actor",
+      "lastName": "User",
+      "attributes": {
+        "classification": ["unclassified"],
+        "department": ["engineering"],
+        "role": ["developer"]
+      },
+      "credentials": [
+        {
+          "type": "password",
+          "value": "error123",
           "temporary": false
         }
       ],

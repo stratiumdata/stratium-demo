@@ -10,11 +10,13 @@ help:
 
 # Quick start
 quickstart: docker-down docker-up
+	@echo "Enabling HTTPS on Keycloak"
+	docker exec stratium-keycloak /opt/keycloak/bin/kcadm.sh update realms/master -s sslRequired=NONE --server http://localhost:8080 --realm master --user admin --password admin
 	@echo ""
 	@echo "✓ Quickstart complete!"
 	@echo ""
 	@echo "Waiting for services to be healthy..."
-	@sleep 10
+	@sleep 5
 	@echo ""
 	@echo "You can now utilize the system!"
 	@echo "  https://stratium.dev/docs - Golang CLI Client"

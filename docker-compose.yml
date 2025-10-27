@@ -72,7 +72,7 @@ services:
 
   # Platform Service
   platform:
-    image: stratiumdata/platform:eval-1.0.0
+    image: stratiumdata/platform:eval-1.0.3
     container_name: stratium-platform
     ports:
       - "50051:50051"
@@ -91,7 +91,7 @@ services:
 
   # Key Manager Service
   key-manager:
-    image: stratiumdata/key-manager:eval-1.0.1
+    image: stratiumdata/key-manager:eval-1.0.3
     container_name: stratium-key-manager
     ports:
       - "50052:50052"
@@ -118,7 +118,7 @@ services:
 
   # Key Access Service
   key-access:
-    image: stratiumdata/key-access:eval-1.0.0
+    image: stratiumdata/key-access:eval-1.0.3
     container_name: stratium-key-access
     ports:
       - "50053:50053"
