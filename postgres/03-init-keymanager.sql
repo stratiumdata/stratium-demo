@@ -78,6 +78,9 @@ CREATE TABLE IF NOT EXISTS client_keys (
     public_key_pem TEXT NOT NULL,
     public_key_der BYTEA,
 
+    -- Key integrity verification (HMAC-based tamper detection)
+    key_integrity_hash VARCHAR(64),
+
     -- Lifecycle management
     status VARCHAR(20) NOT NULL CHECK (status IN ('active', 'inactive', 'expired', 'revoked')) DEFAULT 'active',
     created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),

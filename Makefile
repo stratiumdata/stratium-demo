@@ -36,3 +36,8 @@ docker-down:
 	@echo "Stopping all services..."
 	docker-compose -f docker-compose.yml down
 	@echo "Services stopped!"
+
+docker-clean:
+	@echo "Cleaning volumes"
+	docker-compose -f docker-compose.yml down -v
+	@echo "Volumes removed!"

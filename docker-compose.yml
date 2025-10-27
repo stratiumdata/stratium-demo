@@ -91,7 +91,7 @@ services:
 
   # Key Manager Service
   key-manager:
-    image: stratiumdata/key-manager:eval-1.0.0
+    image: stratiumdata/key-manager:eval-1.0.1
     container_name: stratium-key-manager
     ports:
       - "50052:50052"
