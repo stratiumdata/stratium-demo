@@ -27,6 +27,9 @@ docker-up:
 	docker-compose -f docker-compose.yml up -d
 	@echo "Services started!"
 	@echo ""
+	@echo "Enabling HTTPS on Keycloak"
+	docker exec stratium-keycloak /opt/keycloak/bin/kcadm.sh update realms/master -s sslRequired=NONE --server http://localhost:8080 --realm master --user admin --password admin
+	@echo ""
 	@echo "Services available at:"
 	@echo "  Platform:     localhost:50051 (gRPC)"
 	@echo "  Key Manager:  localhost:50052 (gRPC)"
