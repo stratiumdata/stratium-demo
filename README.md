@@ -1,1 +1,1 @@
-# stratium-demo
+# Stratium Demo
