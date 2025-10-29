@@ -5,14 +5,13 @@
 # Default target
 help:
 	@echo "Stratium Platform (Demo)"
+	@echo "  quickstart      - Runs docker-down followed by docker-up"
 	@echo "  docker-up       - Start all services in customer mode"
 	@echo "  docker-down     - Stop customer services"
+	@echo "  docker-clean    - Performs a docker-down and also removes docker volumes"
 
 # Quick start
 quickstart: docker-down docker-up
-	@echo "Enabling HTTPS on Keycloak"
-	docker exec stratium-keycloak /opt/keycloak/bin/kcadm.sh update realms/master -s sslRequired=NONE --server http://localhost:8080 --realm master --user admin --password admin
-	@echo ""
 	@echo "✓ Quickstart complete!"
 	@echo ""
 	@echo "Waiting for services to be healthy..."
