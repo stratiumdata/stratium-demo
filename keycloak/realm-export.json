@@ -35,12 +35,12 @@
       "alwaysDisplayInConsole": true,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
-        "http://127.0.0.1:*",
-        "http://localhost:*"
+        "http://127.0.0.1:5173/*",
+        "http://localhost:5173/*"
       ],
       "webOrigins": [
-        "http://127.0.0.1:*",
-        "http://localhost:*"
+        "http://127.0.0.1:5173",
+        "http://localhost:5173"
       ],
       "notBefore": 0,
       "bearerOnly": false,
