@@ -54,10 +54,14 @@
       "protocol": "openid-connect",
       "attributes": {
         "oidc.ciba.grant.enabled": "false",
-        "display.on.consent.screen": "false",
-        "oauth2.device.authorization.grant.enabled": "false",
         "backchannel.logout.session.required": "true",
-        "backchannel.logout.revoke.offline.tokens": "false"
+        "post.logout.redirect.uris": "+",
+        "display.on.consent.screen": "true",
+        "oauth2.device.authorization.grant.enabled": "false",
+        "backchannel.logout.revoke.offline.tokens": "false",
+        "login_theme": "stratium-login",
+        "frontchannel.logout.url": "",
+        "backchannel.logout.url": ""
       },
       "authenticationFlowBindingOverrides": {},
       "fullScopeAllowed": true,
